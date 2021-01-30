@@ -54,17 +54,17 @@
                     <input id="fc-count" class="inp-width" type="text">
                 </div>
                 <div>
-                    <button id="fc-plus" class="plus-minus-btn btn">+</button> <br> <button id="fc-minus" class="plus-minus-btn">- </button>
+                    <button onclick="handleProductFcChange(true)" class="plus-minus-btn btn">+</button> <br> <button onclick="handleProductFcChange(false)" class="plus-minus-btn">- </button>
                 </div>
             </div>
             
             <div class="input-group f-class">
                 <div>
-                    <label for="">Economy ($100)</label>
-                    <input class="inp-style inp-width" type="number">
+                    <label for="">Economy (<span id="economy-total">$100</span>)</label>
+                    <input id="economy-count" class="inp-style inp-width" type="text">
                 </div>
                 <div>
-                    <button class="plus-minus-btn">+</button> <br> <button class="plus-minus-btn"> -</button>
+                    <button onclick="handleProductEconomyChange(true)" class="plus-minus-btn btn">+</button> <br> <button onclick="handleProductEconomyChange(false)" class="plus-minus-btn">- </button>
                     
                 </div>
                
@@ -109,27 +109,37 @@
     <!--Thank You-->
     
     <script>
-         document.getElementById('fc-plus').addEventListener('click', function(){
-            handleProductChange(true);       
-        });
-        document.getElementById('fc-minus').addEventListener('click', function(){
-            handleProductChange(false);
-        });
-        function handleProductChange(isIncrease){
+            function handleProductFcChange(isIncrease){
             const fcInput = document.getElementById('fc-count');
             const fcCount = parseInt(fcInput.value);
             let fcNewCount = fcCount;
             if(isIncrease == true) {
                 fcNewCount = fcCount + 1;
-            }
+            };
             if(isIncrease == false && fcCount >0) {
                 fcNewCount = fcCount -1;
-            }
+            };
 
             fcInput.value = fcNewCount;
             const fcTotal = fcNewCount * 150;   
             document.getElementById('fc-total').innerText = '$'+ fcTotal;
-        }
+        };
+        function handleProductEconomyChange(isIncrease){
+            const economyInput = document.getElementById('economy-count');
+            const economyCount = parseInt(economyInput.value);
+            let economyNewCount = economyCount;
+            if(isIncrease == true) {
+                economyNewCount = economyCount + 1;
+            };
+            if(isIncrease == false && economyCount >0) {
+                economyNewCount = economyCount -1;
+            };
+
+            economyInput.value = economyNewCount;
+            const economyTotal = economyNewCount * 100;   
+            document.getElementById('economy-total').innerText = '$'+ economyTotal;
+        };
+
 
         
     </script>
