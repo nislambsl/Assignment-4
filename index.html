@@ -28,7 +28,7 @@
 
     <!--Booking Section-->
     <main class="main-content container">
-        <div class="booking-form">
+        <div id="booking-area" class="booking-form">
             <h3>Booking Flights</h3>
             <div class="input-group">
                 <label for="">Flying From</label>
@@ -97,12 +97,19 @@
                     </div>
                 </div>
             </div>
-            <button class="btn-style">Book Now</button>
+            <button id="submit" class="btn-style">Book Now</button>
+            
         </div>
+
+        
 
         <div class="booking-content">
             <h1>discover <br> around the world</h1>
             <p>Lorem ipsum dolor sit amet consectetur adipisicingelit. Provident voluptatibus quam fuga laborumalias veniam libero autem quasi maxime ullam vero nama imi dolor, architecto ab facilis eaque deserunt nobise voluptatibus quam</p>
+        </div>
+        <div id="submition-sms">
+            <h4> Congratulations!Your request submition successful.<h4>
+            <h6>Thank you very much for chosing us. </h6>
         </div>
     </section>
 
@@ -153,6 +160,13 @@
             const productCount = parseInt(productInput.value);
             return productCount;
         }    
+        const submitBtn = document.getElementById("submit");
+        submitBtn.addEventListener("click",function(){
+            const bookingArea =document.getElementById("booking-area");
+            bookingArea.style.display = "none";
+            const submitionArea = document.getElementById("submition-sms");
+            submitionArea.style.display = "block";
+        })
       
     </script>
 </body>
