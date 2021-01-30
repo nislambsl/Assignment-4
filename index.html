@@ -51,7 +51,7 @@
             <div class="input-group f-class">
                 <div>
                     <label for="">First Class (<span id="fc-total">$150</span>)</label>
-                    <input id="fc-count" class="inp-width" type="text" value="0">
+                    <input id="fc-count" class="inp-width" type="number" value="0">
                 </div>
                 <div>
                     <button onclick="handleProductChange('fc', true)" class="plus-minus-btn btn">+</button> <br> <button onclick="handleProductChange('fc', false)" class="plus-minus-btn">- </button>
@@ -61,7 +61,7 @@
             <div class="input-group f-class">
                 <div>
                     <label for="">Economy (<span id="economy-total">$100</span>)</label>
-                    <input id="economy-count" class="inp-style inp-width" type="text" value="0">
+                    <input id="economy-count" class="inp-style inp-width" type="number" value="0">
                 </div>
                 <div>
                     <button onclick="handleProductChange('economy', true)" class="plus-minus-btn btn">+</button> <br> <button onclick="handleProductChange('economy', false)" class="plus-minus-btn">- </button>
@@ -84,7 +84,7 @@
                         <p>Charge 10% VAT</p>
                     </div>
                     <div class="right">
-                        <p>$50</p>
+                        <p id="vat-amount">$50</p>
                     </div>
                 </div>
                 <hr>
@@ -93,7 +93,7 @@
                         <h4>Total</h4>
                     </div>
                     <div class="right">
-                        <p>$550</p>
+                        <p id="total">$550</p>
                     </div>
                 </div>
             </div>
@@ -144,6 +144,12 @@
             const totalPrice = fcCount * 150 + economyCount * 100;
 
             document.getElementById('total-price').innerText = '$' + totalPrice;
+
+            const vat = totalPrice * 0.1;
+            document.getElementById('vat-amount').innerText = '$' + vat;
+            const total = totalPrice + vat;
+            document.getElementById('total').innerText = '$' + total;
+
         }
 
 
