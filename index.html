@@ -135,14 +135,10 @@
         }
 
         function calculateTotal(){
-            const fcInput = document.getElementById('fc-count');
-            const fcCount = parseInt(fcInput.value);
-
-            const economyInput = document.getElementById('economy-count');
-            const economyCount = parseInt(economyInput.value);
+            const fcCount = getInputValue('fc');
+            const economyCount = getInputValue('economy');            
 
             const totalPrice = fcCount * 150 + economyCount * 100;
-
             document.getElementById('total-price').innerText = '$' + totalPrice;
 
             const vat = totalPrice * 0.1;
@@ -152,8 +148,11 @@
 
         }
 
-
-    
+        function getInputValue(product){
+            const productInput = document.getElementById(product + '-count');
+            const productCount = parseInt(productInput.value);
+            return productCount;
+        }    
       
     </script>
 </body>
